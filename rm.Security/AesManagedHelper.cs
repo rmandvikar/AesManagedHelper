@@ -92,7 +92,7 @@ bskcvvscao";
         /// </summary>
         public string EncryptString(string text)
         {
-            text.NullEmptyCheckArgument("text");
+            text.NullCheckArgument("text");
 
             byte[] textBytesEncryptedCombined;
             using (var aes = new AesManaged())

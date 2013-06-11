@@ -40,6 +40,7 @@ ODNnHkLsi1
         [Test]
         [TestCase("encrypt this")]
         [TestCase("this is a test")]
+        [TestCase("")]
         public void Test01a(string text)
         {
             var enc = WebUtility.UrlEncode(aes1.EncryptString(text));
@@ -52,10 +53,9 @@ ODNnHkLsi1
         }
         [Test]
         [TestCase(null)]
-        [TestCase("")]
         public void Test01b(string text)
         {
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
             {
                 var enc = aes1.EncryptString(text);
             });
@@ -64,6 +64,7 @@ ODNnHkLsi1
         [Test]
         [TestCase("encrypt this")]
         [TestCase("this is a test")]
+        [TestCase("")]
         public void Test02a(string text)
         {
             var enc = aes2.EncryptString(text);
@@ -75,10 +76,9 @@ ODNnHkLsi1
         }
         [Test]
         [TestCase(null)]
-        [TestCase("")]
         public void Test02b(string text)
         {
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
             {
                 var enc = aes2.EncryptString(text);
             });
